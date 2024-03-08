@@ -8,21 +8,27 @@ import json
 
 Class FileStorage:
     """ class to serialize the other class' s instances to/from file"""
-    __file_path = str(file_path)"""can not be true"""
+    __file_path = ""
     __objects = {}
 
-    def __init__(self):
-        """method about initialization of FileStorage class"""
-    
     def all(self):
         """method to return dictionary objects"""
-        return 
+        return self.__objects
 
     def new(self, obj):
         """sets __objects obj with key"""
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        self.__objects[key] = obj
 
     def save(self):
         """serialises __objects to Json file."""
+        with open(self.__file_path, 'w') as fil:
+            json.dumps(self.__objects, fil)
 
     def reload(self):
         """deserialises Json file to __objects."""
+        try:
+            with open(self.__file_path, 'r') as fil:
+                self.__objects = json.load(fil)
+        except FileNotFoundError:
+            pass
