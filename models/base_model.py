@@ -29,6 +29,7 @@ class BaseModel:
             kwargs.pop('__class__', None)
             self.__dict__.update(kwargs)
         else:
+            storage.new(self)
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
