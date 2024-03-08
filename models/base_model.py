@@ -12,7 +12,7 @@ class BaseModel:
     """
     def __init__(self, *args, **kwargs):
         """ this is the initiation of BaseModel class """
-        if kwargs is not None:
+        if kwargs:
             if 'created_at' in kwargs:
                 kwargs['created_at'] = datetime.strptime(
                         kwargs['created_at'],
@@ -29,7 +29,7 @@ class BaseModel:
             self.__dict__.update(kwargs)
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.onw()
+            self.created_at = datetime.now()
             self.updated_at = datetime.now()
 
     def __str__(self):
