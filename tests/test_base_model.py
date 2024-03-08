@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ this is the test file for base_model. """
 import unittest
-form base.base_model import BaseModel
+from base.base_model import BaseModel
 from datetime import datetime
 
 
