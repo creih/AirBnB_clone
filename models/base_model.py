@@ -14,9 +14,15 @@ class BaseModel:
         """ this is the initiation of BaseModel class """
         if kwargs is not None:
             if 'created_at' in kwargs:
-                kwargs['created_at'] = datetime.strptime(kwargs['created_at'], "%Y-%m-%dT%H:%M:%S.%f")
+                kwargs['created_at'] = datetime.strptime(
+                        kwargs['created_at'],
+                        "%Y-%m-%dT%H:%M:%S.%f"
+                        )
             if 'updated_at' in kwargs:
-                kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
+                kwargs['updated_at'] = datetime.strptime(
+                        kwargs['updated_at'],
+                        "%Y-%m-%dT%H:%M:%S.%f"
+                        )
             if 'id' not in kwargs:
                 kwargs['id'] = str(uuid.uuid4())
             kwargs.pop('__class__', None)
@@ -39,7 +45,7 @@ class BaseModel:
 
     def to_dict(self):
         """
-        dictionary to store class name and attributes and 
+        dictionary to store class name and attributes and
         obave stands in as copy of __dict__ 's object
         """
         obave = self.__dict__.copy()
