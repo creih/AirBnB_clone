@@ -42,10 +42,6 @@ class HBNBCommand(Cmd):
             except Exception as e:
                 print("** class doesn' t exist **")
 
-    def do_show(self, arg):
-        """ this shows saved instances of a class BaseModel """
-        pass
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

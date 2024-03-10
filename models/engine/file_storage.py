@@ -7,6 +7,7 @@ from models.base_model import BaseModel
 
 
 class FileStorage(BaseModel):
+    """this is the class for storing  our instances and everything"""
     __file_path = "file.json"
     __objects = {}
 
@@ -23,10 +24,9 @@ class FileStorage(BaseModel):
         """Serializes __objects to the JSON file."""
         serialized_objects = {}
         for key, value in self.__objects.items():
-            serialized_value = value.to_dict()  # Convert object to dictionary
+            serialized_value = value.to_dict()
             for attr, val in serialized_value.items():
                 if isinstance(val, datetime):
-                    # Convert datetime to string
                     serialized_value[attr] = val.isoformat()
             serialized_objects[key] = serialized_value
 
@@ -41,7 +41,6 @@ class FileStorage(BaseModel):
                 for key, value in data.items():
                     for attr, val in value.items():
                         if attr.endswith('_at'):
-                            # Convert string to datetime
                             value[attr] = datetime.fromisoformat(val)
                     class_name, obj_id = key.split('.')
                     class_ = eval(class_name)
