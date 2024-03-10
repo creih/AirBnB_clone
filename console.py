@@ -70,23 +70,18 @@ class HBNBCommand(cmd.Cmd):
             return
         print(storage.all()[key])
 
-    def do_all(self, arg):
-        """Print all string representation of all instances"""
+    def do_count(self, arg):
+        """Retrieve the number of instances of a class."""
         args = arg.split()
         if len(args) == 0:
-            print([str(value) for value in storage.all().values()])
-        elif args[0] not in [
-            "BaseModel",
-            "User",
-            "State",
-            "City",
-            "Amenity",
-            "Place",
-            "Review"
-            ]:
+            print("** class name missing **")
+            return
+        class_name = args[0]
+        if class_name not in self.classes:
             print("** class doesn't exist **")
-        else:
-            print([str(value) for key, value in storage.all().items() if args[0] in key])
+            return
+        count = len(storage.all()[class_name])
+        print(count)
 
     def do_quit(self, arg):
         """
