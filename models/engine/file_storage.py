@@ -3,9 +3,10 @@
 this file ni iyo kubika objects
 """
 import json
+from models import BaseModel
 
 
-class FileStorage:
+class FileStorage(BaseModel):
     __file_path = "file.json"
     __objects = {}
 
