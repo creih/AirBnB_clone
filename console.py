@@ -5,7 +5,6 @@ for our AirBnB project
 """
 from cmd import Cmd
 from models.base_model import BaseModel
-from models import storage
 
 
 class HBNBCommand(Cmd):
