@@ -4,6 +4,8 @@ this file is for calling the cmd class for interpreter functionalities
 for our AirBnB project
 """
 from cmd import Cmd
+from models.base_model import BaseModel
+from models import storage
 
 
 class HBNBCommand(Cmd):
@@ -28,6 +30,21 @@ class HBNBCommand(Cmd):
         """Quit command to exit the program"""
         return True
 
+    def do_create(self, arg):
+        """creation of instances from BaseModel..."""
+        if not arg:
+            print("** class name missing **")
+        else:
+            try:
+                obj = eval(arg)()
+                obj.save()
+                print(obj.id)
+            except Exception as e:
+                print("** class doesn' t exist **")
+
+    def do_show(self, arg):
+        """ this shows saved instances of a class BaseModel """
+        pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
