@@ -27,7 +27,14 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in ["BaseModel", "State", "City", "Amenity", "Place", "Review"]:
+        if class_name not in [
+                "BaseModel",
+                "State",
+                "City",
+                "Amenity",
+                "Place",
+                "Review"
+                ]:
             print("** class doesn't exist **")
             return
         new_obj = eval(class_name)()
@@ -36,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """
-        Prints the string representation of an instance based on the class name and id.
+        Prints str rep of an instance based on the class name and id.
         """
         args = arg.split()
         if len(args) == 0:
@@ -47,7 +54,14 @@ class HBNBCommand(cmd.Cmd):
             return
         class_name = args[0]
         obj_id = args[1]
-        if class_name not in ["BaseModel", "State", "City", "Amenity", "Place", "Review"]:
+        if class_name not in [
+                "BaseModel",
+                "State",
+                "City",
+                "Amenity",
+                "Place",
+                "Review"
+                ]:
             print("** class doesn't exist **")
             return
         key = "{}.{}".format(class_name, obj_id)
@@ -55,8 +69,6 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
             return
         print(storage.all()[key])
-
-    # Add similar methods for destroy, update, and all actions
 
     def do_quit(self, arg):
         """
