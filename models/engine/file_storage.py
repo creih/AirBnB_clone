@@ -3,7 +3,7 @@
 this file ni iyo kubika objects
 """
 import json
-from models import BaseModel
+from models.base_model import BaseModel
 
 
 class FileStorage(BaseModel):
