@@ -24,7 +24,7 @@ class HBNBCommand(Cmd):
         pass
 
     def do_EOF(self, arg):
-        """Quit command to exit program"""
+        """Quit command to exit the program"""
         return True
 
 if __name__ == '__main__':
