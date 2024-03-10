@@ -12,10 +12,11 @@ class HBNBCommand(Cmd):
     a select few like quit, EOF, prompt and  help.
     """
     prompt = "(hbnb) "
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
-    
+
     def help_quit(self):
         """This is the quit help command."""
         print("Quit command to exit the program")
@@ -26,6 +27,7 @@ class HBNBCommand(Cmd):
     def do_EOF(self, arg):
         """Quit command to exit the program"""
         return True
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
