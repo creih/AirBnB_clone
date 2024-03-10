@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-this file ni iyo kubika objects 
+this file ni iyo kubika objects
 """
 import json
 
