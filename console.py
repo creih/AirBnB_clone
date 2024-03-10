@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-this file is for calling the cmd class for interpreter functionalities
+cette file is for calling the cmd class for interpreter functionalities
 for our AirBnB project
 """
 from cmd import Cmd
