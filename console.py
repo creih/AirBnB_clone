@@ -70,19 +70,6 @@ class HBNBCommand(cmd.Cmd):
             return
         print(storage.all()[key])
 
-    def do_count(self, arg):
-        """Retrieve the number of instances of a class."""
-        args = arg.split()
-        if len(args) == 0:
-            print("** class name missing **")
-            return
-        class_name = args[0]
-        if class_name not in self.classes:
-            print("** class doesn't exist **")
-            return
-        count = len(storage.all()[class_name])
-        print(count)
-
     def do_quit(self, arg):
         """
         Exits the command interpreter.
