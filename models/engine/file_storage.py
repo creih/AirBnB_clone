@@ -11,6 +11,11 @@ class FileStorage(BaseModel):
     __file_path = "file.json"
     __objects = {}
 
+    models_classes = {
+        'BaseModel': BaseModel,
+        'User': User,
+    }
+
     def all(self):
         """this all method niya displaying objects zose."""
         return self.__objects
