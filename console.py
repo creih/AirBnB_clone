@@ -70,6 +70,24 @@ class HBNBCommand(cmd.Cmd):
             return
         print(storage.all()[key])
 
+    def do_all(self, arg):
+        """Print all string representation of all instances"""
+        args = arg.split()
+        if len(args) == 0:
+            print([str(value) for value in storage.all().values()])
+        elif args[0] not in [
+            "BaseModel",
+            "User",
+            "State",
+            "City",
+            "Amenity",
+            "Place",
+            "Review"
+            ]:
+            print("** class doesn't exist **")
+        else:
+            print([str(value) for key, value in storage.all().items() if args[0] in key])
+
     def do_quit(self, arg):
         """
         Exits the command interpreter.
