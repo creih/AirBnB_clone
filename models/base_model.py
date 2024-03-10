@@ -4,7 +4,6 @@ this is the base file for the whole project
 """
 import uuid
 from datetime import datetime
-from models import storage
 
 
 class BaseModel:
@@ -44,6 +43,7 @@ class BaseModel:
     def save(self):
         """ this ought to be the save file that changes update at time"""
         self.updated_at = datetime.now()
+
     def to_dict(self):
         """
         dictionary to store class name and attributes and
