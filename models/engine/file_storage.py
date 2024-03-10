@@ -3,8 +3,6 @@
 this file ni iyo kubika objects
 """
 import json
-
-
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
