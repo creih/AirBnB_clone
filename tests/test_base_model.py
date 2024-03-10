@@ -11,11 +11,11 @@ class TestBaseModel(unittest.TestCase):
         """this is the setup for avoiding repeated instantiation"""
         self.model = BaseModel()
 
-    """def test_init_attributes(self):
+    def test_init_attributes(self):
         """testing if the attributes are of correct data type."""
         self.assertIsInstance(self.model.id, str)
         self.assertIsInstance(self.model.created_at, datetime)
-        self.assertIsInstance(self.model.updated_at, datetime)"""
+        self.assertIsInstance(self.model.updated_at, datetime)
 
     def test_str_method(self):
         """ test the str method """

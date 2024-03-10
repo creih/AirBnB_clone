@@ -4,6 +4,7 @@ this is the base file for the whole project
 """
 import uuid
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
@@ -28,6 +29,7 @@ class BaseModel:
             kwargs.pop('__class__', None)
             self.__dict__.update(kwargs)
         else:
+            storage.new(self)
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
@@ -43,6 +45,7 @@ class BaseModel:
     def save(self):
         """ this ought to be the save file that changes update at time"""
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """
