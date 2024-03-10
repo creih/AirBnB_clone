@@ -6,7 +6,7 @@ file to instances
 import json
 
 
-Class FileStorage:
+class FileStorage:
     """ class to serialize the other class' s instances to/from file"""
     __file_path = "file.json"
     __objects = {}
@@ -17,6 +17,7 @@ Class FileStorage:
 
     def new(self, obj):
         """sets __objects obj with key"""
+        obj = BaseModel()
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.__objects[key] = obj
 
