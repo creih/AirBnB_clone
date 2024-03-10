@@ -1,50 +1,57 @@
 #!/usr/bin/python3
 """
-this file ni iyo kubika objects
+This module defines the FileStorage class.
 """
+
 import json
 from models.base_model import BaseModel
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
-class FileStorage(BaseModel):
-    """this is the class for storing  our instances and everything"""
+class FileStorage:
+    """
+    Serializes instances to a JSON file and deserializes JSON file to instances.
+    """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """this all method niya displaying objects zose."""
+        """
+        Returns the dictionary __objects.
+        """
         return self.__objects
 
     def new(self, obj):
-        """this new method niya creating new objects."""
+        """
+        Sets in __objects the obj with key <obj class name>.id.
+        """
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.__objects[key] = obj
 
     def save(self):
-        """Serializes __objects to the JSON file."""
-        serialized_objects = {}
+        """
+        Serializes __objects to the JSON file (path: __file_path).
+        """
+        new_dict = {}
         for key, value in self.__objects.items():
-            serialized_value = value.to_dict()
-            for attr, val in serialized_value.items():
-                if isinstance(val, datetime):
-                    serialized_value[attr] = val.isoformat()
-            serialized_objects[key] = serialized_value
-
-        with open(self.__file_path, 'w') as f:
-            json.dump(serialized_objects, f)
+            new_dict[key] = value.to_dict()
+        with open(self.__file_path, mode="w", encoding="utf-8") as file:
+            json.dump(new_dict, file)
 
     def reload(self):
-        """Deserializes JSON file to __objects."""
+        """
+        Deserializes the JSON file to __objects (only if the JSON file exists).
+        """
         try:
-            with open(self.__file_path, 'r') as f:
-                data = json.load(f)
-                for key, value in data.items():
-                    for attr, val in value.items():
-                        if attr.endswith('_at'):
-                            value[attr] = datetime.fromisoformat(val)
-                    class_name, obj_id = key.split('.')
-                    class_ = eval(class_name)
-                    obj = class_(**value)
-                    self.__objects[key] = obj
+            with open(self.__file_path, mode="r", encoding="utf-8") as file:
+                obj_dict = json.load(file)
+                for key, value in obj_dict.items():
+                    cls_name, obj_id = key.split(".")
+                    cls = eval(cls_name)
+                    self.__objects[key] = cls(**value)
         except FileNotFoundError:
             pass
