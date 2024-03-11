@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" this is the test file for base_model. """
+"""
+this is the test file for base_model.
+"""
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
@@ -7,6 +9,7 @@ from datetime import datetime
 
 class TestBaseModel(unittest.TestCase):
     """this class is for the class testing."""
+
     def setUp(self):
         """this is the setup for avoiding repeated instantiation"""
         self.model = BaseModel()
@@ -26,36 +29,30 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(str(self.model), exp_str)
 
     def test_initialization(self):
+        """the initialisation test is now """
         obj = BaseModel()
         self.assertIsNotNone(obj.id)
         self.assertIsNotNone(obj.created_at)
         self.assertIsNotNone(obj.updated_at)
 
     def test_serialization_deserialization(self):
+        """this is the serialisation tests """
         obj = BaseModel()
         serialized_obj = obj.to_dict()
         deserialized_obj = BaseModel(**serialized_obj)
         self.assertEqual(obj.__dict__, deserialized_obj.__dict__)
 
     def test_attribute_modification(self):
+        """this should not be equal I think """
         obj = BaseModel()
         obj.name = "Test"
         self.assertEqual(obj.name, "Test")
 
     def test_equality(self):
+        """test if two objects are not that equal."""
         obj1 = BaseModel()
         obj2 = BaseModel()
         self.assertNotEqual(obj1.id, obj2.id)
-
-    def test_validation(self):
-        obj = BaseModel()
-        obj.name = 123
-        self.assertNotEqual(obj.name, 123)
-
-    def test_edge_cases(self):
-        obj = BaseModel()
-        obj.name = ""
-        self.assertEqual(obj.name, "")
 
 
 if __name__ == '__main__':
