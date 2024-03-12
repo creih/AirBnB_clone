@@ -5,6 +5,7 @@ this is the test for user class in models module
 from unittest import TestCase
 from models.user import User
 
+
 class Test_user(TestCase):
     """
     this class encloses all methods that will
@@ -18,3 +19,7 @@ class Test_user(TestCase):
         self.assertIsInstance(user_o.password, str)
         self.assertIsInstance(user_o.first_name, str)
         self.assertIsInstance(user_o.last_name, str)
+
+
+if __name__ == '__main__':
+    unittest.main()
