@@ -4,8 +4,9 @@ this is the test file for base_model. and it has methods for different
 functionalities of base_model
 """
 import unittest
-from models.base_model import BaseModel
 from datetime import datetime
+from models.base_model import BaseModel
+
 
 
 class TestBaseModel(unittest.TestCase):
