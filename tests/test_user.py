@@ -7,7 +7,8 @@ from models.user import User
 
 class Test_user(TestCase):
     """
-    this class encloses all methods that will be used to test the user class really
+    this class encloses all methods that will
+    be used to test the user class really
     """
 
     def atts_are_str(self):
