@@ -7,4 +7,9 @@ from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    pass
+    """ the user class that will hold data about those who use this console"""
+
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
