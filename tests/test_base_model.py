@@ -8,7 +8,6 @@ from datetime import datetime
 from models.base_model import BaseModel
 
 
-
 class TestBaseModel(unittest.TestCase):
     """this class is for the class testing."""
 
@@ -60,8 +59,14 @@ class TestBaseModel(unittest.TestCase):
         timestamp = "2023-11-21T15:30:00.000000"
         kwargs = {"created_at": timestamp, "updated_at": timestamp}
         instance2 = BaseModel(**kwargs)
-        self.assertEqual(instance2.created_at, datetime.fromisoformat(timestamp))
-        self.assertEqual(instance2.updated_at, datetime.fromisoformat(timestamp))
+        self.assertEqual(
+                instance2.created_at,
+                datetime.fromisoformat(timestamp)
+                )
+        self.assertEqual(
+                instance2.updated_at,
+                datetime.fromisoformat(timestamp)
+                )
 
     def test_save(self):
         """this test is for the save() method if it actually saves"""
@@ -77,6 +82,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(data["__class__"], "BaseModel")
         self.assertIsInstance(data["created_at"], str)
         self.assertIsInstance(data["updated_at"], str)
+
 
 if __name__ == '__main__':
     unittest.main()
