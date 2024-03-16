@@ -1,0 +1,21 @@
+header {
+    background-color: #FFFFFF;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: left;
+}
+.logo {
+    background-image: url('../images/hbnb_logo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    width: 160px;
+    /* margin: auto 0 auto 20; */
+}
+
