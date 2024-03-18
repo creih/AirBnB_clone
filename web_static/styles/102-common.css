@@ -1,0 +1,11 @@
+@media only screen and (max-width: 600px) {
+    * {
+        color:  #484848;
+        font-size: 14px;
+        font-family: "Helvetica nue", Arial, Helvetica, sans-serif;
+    }
+    body {
+        display: block;
+        flex-direction: row;
+    }
+}
