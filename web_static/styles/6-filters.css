@@ -21,7 +21,6 @@
     position: absolute;
     right: 30px;
     margin: 10px;
-    /*centering the word search*/
     text-align: center;
 
 }
@@ -61,7 +60,7 @@
 }
 .popover{
     padding: 5%;
-    display: none;
+    visibility: hidden;
     background-color: #FAFAFA;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
@@ -74,8 +73,8 @@
     font-size: 16px;
 }
 .locations:hover .popover {
-    display: block;
+    visibility: visible;
 }
 .amenities:hover .popover {
-    display: block;
+    visibility: visible;
 }
